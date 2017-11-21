@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { EvenSplitPage } from '../pages/even-split/even-split';
+import { SplitBillPage } from '../pages/split-bill/split-bill';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    EvenSplitPage
+    EvenSplitPage,
+    SplitBillPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage, 
-    EvenSplitPage
+    EvenSplitPage,
+    SplitBillPage
   ],
   providers: [
     StatusBar,

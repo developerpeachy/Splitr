@@ -5,7 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { EvenSplitPage } from '../pages/even-split/even-split'
+import { EvenSplitPage } from '../pages/even-split/even-split';
+import { SplitBillPage } from '../pages/split-bill/split-bill';
 
 @Component({
   templateUrl: 'app.html'
