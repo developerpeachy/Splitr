@@ -1,0 +1,19 @@
+page-home {
+	
+	text-align: center;
+
+	.scroll-content{
+		padding-top: 50% !important;
+		text-align: center;
+	}
+
+	.btnSpan{
+		display: flex;
+		text-align: center;
+    	justify-content: center;
+    	
+    	.button {
+    		background-color: color($colors, secondary);
+    	}
+	}
+}

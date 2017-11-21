@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+  	<ion-buttons left>
+      <button (click)="back()" ion-button icon-left clear>
+    	<ion-icon name="md-arrow-back"></ion-icon> 
+      </button>
+    </ion-buttons>
+    <ion-title>Split Even</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card> 
+		<ion-list>
+	    	<form [formGroup]="splitBillForm">
+	      		<ion-item>
+	        		<ion-label>Total Price</ion-label>
+	        		<ion-input type="tel" formControlName="totalAmt"></ion-input>
+	      		</ion-item>
+	      		<ion-item>
+	        		<ion-label>Number of people</ion-label>
+	        		<ion-input type="tel" formControlName="amtOfPpl"></ion-input>
+	      		</ion-item>
+	      		<button ion-button type="submit" [disabled]="!splitBillForm.valid" (click)="calculate()">Calculate</button>
+    		</form>
+  		</ion-list>
+	</ion-card>
+	<ion-card [hidden]="!amtPayable">
+	  <ion-card-header>
+	    Amount payable
+	  </ion-card-header>
+	  <ion-card-content>
+	   Everyone should pay ${{amtPayable}} each.
+	  </ion-card-content>
+	</ion-card>
+
+</ion-content>
