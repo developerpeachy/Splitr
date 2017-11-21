@@ -28,6 +28,7 @@ export class SplitBillPage {
   addPerson(){
   	if (this.splitBillForm.valid) {
   		// reveal a button that adds a person that needs to pay
+  		this.calculate();
   		this.submitAttempt = true;
   	}
   	else {
@@ -39,22 +40,24 @@ export class SplitBillPage {
   calculatePerPerson(){
   	//amtPayable is the price that is being added up for each person.
   	let price = this.calculateForm.value.price;
-  	this.amtPayable + price;
+  	this.amtPayable = this.amtPayable + price;
   	return parseFloat(this.amtPayable).toFixed(2);
   }
 
   calculate(){
   	//calculates the bill in total.
 	let totalAmt = this.splitBillForm.value.totalAmt;
-	this.amtOwing = totalAmt - this.amtPayable; //must = 0
-	if (this.amtOwing == 0 ){
+	parseFloat(totalAmt).toFixed(2);
+	parseFloat(this.amtPayable).toFixed(2);
+	if (totalAmt - this.amtPayable == 0){
 		//all working ok
 		console.log('success');
 	}
 	else {
 		console.log('amount owing is not equal to total amount');
 		//return amount owing to display how much money needs to get paid
-		return parseFloat(this.amtOwing).toFixed(2);
+		//return parseFloat(this.amtOwing).toFixed(2);
+		
 	}
   }
 
