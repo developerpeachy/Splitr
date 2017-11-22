@@ -13,6 +13,7 @@ export class EvenSplitPage {
   splitBillForm : FormGroup;
   submitAttempt: boolean = false;
   amtPayable : any;
+  total : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
 
@@ -28,16 +29,13 @@ export class EvenSplitPage {
   }
 
   calculate(){
-  	this.submitAttempt =  true;
+  	this.submitAttempt = true;
   	if (this.splitBillForm.valid){
   		// totalamt  / amtOfPPl = total pay out
   		let totalAmt = this.splitBillForm.value.totalAmt;
   		let amtOfPpl = this.splitBillForm.value.amtOfPpl;
-  		this.amtPayable = (totalAmt / amtOfPpl); 
-  		return parseFloat(this.amtPayable).toFixed(2);
+  		this.amtPayable = (+totalAmt / +amtOfPpl).toFixed(2); 
   	}
-
-  	console.log(this.splitBillForm.value);
   }
 
   back(){

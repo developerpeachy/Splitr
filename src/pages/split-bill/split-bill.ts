@@ -44,16 +44,15 @@ export class SplitBillPage {
 
   calculatePerPerson(){
   	//calculates the balance
-  	let price = +this.calculateForm.value.price;
+  	let price = Number(this.calculateForm.value.price);
   	if (this.balance == 0) {
-  		this.balance = this.balance + price;
+  		this.balance = price;
   		console.log("new bal: " + this.balance);
-  		return this.balance;
   	}
   	else {
 	  	//let balance accumulate value by balance + price
-	  	let balance = this.balance + price;
-	  	return this.balance;
+	  	this.balance = this.balance + price;
+      console.log("new bal: " + this.balance);
   	}
   }
 

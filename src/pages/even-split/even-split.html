@@ -13,19 +13,19 @@
 		<ion-card-content> Have you got a bill that you would like to split evenly between your friends? </ion-card-content>
 	</ion-card>
 	<ion-card> 
-		<ion-list>
+		<ion-card-content> 
 	    	<form [formGroup]="splitBillForm">
 	      		<ion-item>
-	        		<ion-label>Total Price</ion-label>
+	        		<ion-label stacked>Total Price</ion-label>
 	        		<ion-input type="tel" formControlName="totalAmt"></ion-input>
 	      		</ion-item>
 	      		<ion-item>
-	        		<ion-label>Number of people</ion-label>
+	        		<ion-label stacked>Number of people</ion-label>
 	        		<ion-input type="tel" formControlName="amtOfPpl"></ion-input>
 	      		</ion-item>
 	      		<button ion-button type="submit" [disabled]="!splitBillForm.valid" (click)="calculate()">Calculate</button>
     		</form>
-  		</ion-list>
+		</ion-card-content>
 	</ion-card>
 	<ion-card [hidden]="!amtPayable">
 	  <ion-card-header>
