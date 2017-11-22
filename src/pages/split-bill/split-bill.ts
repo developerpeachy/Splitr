@@ -12,8 +12,10 @@ export class SplitBillPage {
 	splitBillForm : FormGroup;
 	calculateForm : FormGroup;
 	submitAttempt: boolean = false;
-  	amtPayable : any;
+	submitAttempt1: boolean = false;
+  	amtPayable : number = 0;
   	amtOwing : any;
+  	balance : number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
   	this.splitBillForm = formBuilder.group({
@@ -25,31 +27,43 @@ export class SplitBillPage {
     })
   }
 
+  //need a better way to code this. 
   addPerson(){
   	if (this.splitBillForm.valid) {
   		// reveal a button that adds a person that needs to pay
-  		this.calculate();
   		this.submitAttempt = true;
   	}
   	else {
-  		// ask to fill in the form
-  		//toast or alert message
+  		//idk
   	}
   }
 
-  calculatePerPerson(){
-  	//amtPayable is the price that is being added up for each person.
-  	let price = this.calculateForm.value.price;
-  	this.amtPayable = this.amtPayable + price;
-  	return parseFloat(this.amtPayable).toFixed(2);
+  addSecondPerson(){
+  	this.submitAttempt1 = true;
   }
 
+  calculatePerPerson(){
+  	//calculates the balance
+  	let price = +this.calculateForm.value.price;
+  	if (this.balance == 0) {
+  		this.balance = this.balance + price;
+  		console.log("new bal: " + this.balance);
+  		return this.balance;
+  	}
+  	else {
+	  	//let balance accumulate value by balance + price
+	  	let balance = this.balance + price;
+	  	return this.balance;
+  	}
+  }
+
+  //Haven't tested
   calculate(){
   	//calculates the bill in total.
-	let totalAmt = this.splitBillForm.value.totalAmt;
-	parseFloat(totalAmt).toFixed(2);
-	parseFloat(this.amtPayable).toFixed(2);
-	if (totalAmt - this.amtPayable == 0){
+	let totalAmt = +this.splitBillForm.value.totalAmt;
+	let amtPayable = totalAmt - this.balance;
+	
+	if (amtPayable < totalAmt){
 		//all working ok
 		console.log('success');
 	}
@@ -64,15 +78,5 @@ export class SplitBillPage {
   back(){
   	this.navCtrl.push(HomePage);
   }
-
-
-
-
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SplitBillPage');
-  }
-
-
 
 }

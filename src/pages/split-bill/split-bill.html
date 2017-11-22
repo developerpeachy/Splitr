@@ -19,7 +19,7 @@
 		        		<ion-label>Total Price $</ion-label>
 		        		<ion-input type="tel" formControlName="totalAmt"></ion-input>
 		      		</ion-item>
-		      		<button ion-button type="submit" [disabled]="!splitBillForm.valid" (click)="addPerson()">Calculate</button>
+		      		<button ion-button type="submit" [disabled]="!splitBillForm.valid" (click)="addPerson()">Add a person</button>
 	    		</form>
 		</ion-card-content> 
 	</ion-card>
@@ -33,8 +33,22 @@
 	        		<ion-label>Price $</ion-label>
 	        		<ion-input type="tel" formControlName="price"></ion-input>
 	      		</ion-item>
-	      		<button ion-button type="submit" [disabled]="!calculateForm.valid" (click)="calculate()">Calculate</button>
-	      		<button ion-button type="submit" [disabled]="!calculateForm.valid" (click)="addPerson()">Add another person</button>
+	      		<button ion-button type="submit" [disabled]="!calculateForm.valid" (click)="calculatePerPerson()">Calculate</button>
+	      		<button ion-button type="submit" [disabled]="!calculateForm.valid" (click)="addSecondPerson()">Add another person</button>
+    		</form>
+	  </ion-card-content>
+	</ion-card>
+	<ion-card [hidden]="!submitAttempt1">
+	  <ion-card-header>
+	    Person 2
+	  </ion-card-header>
+	  <ion-card-content>
+	 	<form [formGroup]="calculateForm">
+	      		<ion-item>
+	        		<ion-label>Price $</ion-label>
+	        		<ion-input type="tel" formControlName="price"></ion-input>
+	      		</ion-item>
+	      		<button ion-button type="submit" [disabled]="!calculateForm.valid" (click)="calculatePerPerson()">Calculate</button>
     		</form>
 	  </ion-card-content>
 	</ion-card>
