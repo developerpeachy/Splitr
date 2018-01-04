@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content>
 	<ion-card> 
-		<ion-card-content> Have you got a bill that you would like to split evenly between your friends? </ion-card-content>
+		<ion-card-content> Split the bill between mates </ion-card-content>
 	</ion-card>
 	<ion-card> 
 		<ion-card-content> 
@@ -27,12 +27,12 @@
     		</form>
 		</ion-card-content>
 	</ion-card>
-	<ion-card [hidden]="!amtPayable">
+	<ion-card [hidden]="!amtPayable" *ngFor="let person of persons">
 	  <ion-card-header>
-	    Amount payable
+	    Person {{persons[0]}}
 	  </ion-card-header>
 	  <ion-card-content>
-	   Everyone should pay ${{amtPayable}} each.
+	   Total: ${{amtPayable | number : '1.0-2'}}
 	  </ion-card-content>
 	</ion-card>
 

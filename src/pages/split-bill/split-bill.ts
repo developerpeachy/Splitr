@@ -27,20 +27,6 @@ export class SplitBillPage {
     })
   }
 
-  //need a better way to code this. 
-  addPerson(){
-  	if (this.splitBillForm.valid) {
-  		// reveal a button that adds a person that needs to pay
-  		this.submitAttempt = true;
-  	}
-  	else {
-  		//idk
-  	}
-  }
-
-  addSecondPerson(){
-  	this.submitAttempt1 = true;
-  }
 
   calculatePerPerson(){
   	//calculates the balance
@@ -59,19 +45,18 @@ export class SplitBillPage {
   //Haven't tested
   calculate(){
   	//calculates the bill in total.
-	let totalAmt = +this.splitBillForm.value.totalAmt;
-	let amtPayable = totalAmt - this.balance;
-	
-	if (amtPayable < totalAmt){
-		//all working ok
-		console.log('success');
-	}
-	else {
-		console.log('amount owing is not equal to total amount');
-		//return amount owing to display how much money needs to get paid
-		//return parseFloat(this.amtOwing).toFixed(2);
-		
-	}
+  	let totalAmt = +this.splitBillForm.value.totalAmt;
+  	let amtPayable = totalAmt - this.balance;
+  	
+  	if (amtPayable < totalAmt){
+  		//all working ok
+  		console.log('success');
+  	}
+  	else {
+  		console.log('amount owing is not equal to total amount');
+  		//return amount owing to display how much money needs to get paid
+  		//return parseFloat(this.amtOwing).toFixed(2);	
+  	}
   }
 
   back(){

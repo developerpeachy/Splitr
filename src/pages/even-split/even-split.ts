@@ -10,18 +10,21 @@ import { HomePage } from '../home/home';
 
 export class EvenSplitPage {
 
-  splitBillForm : FormGroup;
+  splitBillForm: FormGroup;
   submitAttempt: boolean = false;
-  amtPayable : any;
-  total : any;
+  amtPayable: any;
+  total: any;
+  persons: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
 
   	this.splitBillForm = formBuilder.group({
-  		//([0-9][0-9.[0-9]*)
         totalAmt: ['', Validators.compose([Validators.maxLength(50), Validators.pattern('[0-9][0-9.[0-9]*'), Validators.required])],
         amtOfPpl: ['', Validators.compose([Validators.maxLength(50), Validators.pattern('[0-9][0-9]*'), Validators.required])]
     });
+
+    this.persons = [];
+
   }
 
   ionViewDidLoad() {
@@ -35,6 +38,8 @@ export class EvenSplitPage {
   		let totalAmt = this.splitBillForm.value.totalAmt;
   		let amtOfPpl = this.splitBillForm.value.amtOfPpl;
   		this.amtPayable = (+totalAmt / +amtOfPpl).toFixed(2); 
+      this.persons.length = amtOfPpl;
+      console.log(this.persons);
   	}
   }
 
