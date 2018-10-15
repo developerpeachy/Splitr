@@ -8,9 +8,6 @@
 * Home page
 ![Home Page](/assets/screenshots/home.png)
 
-* Even Split page
-![Even Split](/assets/screenshots/evensplit.png)
-
 ### How to run
 1. Clone or fork this repository
 2. Run `npm install` to install all the dependancies
@@ -22,4 +19,4 @@ I'm currently working on:
 * Better code writing 
 * Server/back end stuff 
 
-&copy; Rosalie Prom / developerpeachy 
+&copy; Rosalie Prom / developerpeachy & Alan Ng / developeralan
